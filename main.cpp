@@ -1,61 +1,45 @@
-/*The simplified code for the Truth Table programming quiz.
-*/
+/*Goal: demonstrate use cases for the switch statement.*/
 
-
-#include<iostream>
-
+#include <iostream>
 
 int main() {
-    //(A and B and C) or (A and( (not B) or (not C))) = Q
+    int menuItem = 1;
 
-    int A = 0;
-    int B = 0;
-    int C = 0;
-    int Q;
-    Q = A;
+    std::cout << "What is your favorite winter sport?: \n";
+    std::cout << "1.Skiing\n2: Sledding\n3: Sitting by the fire";
+    std::cout << "\n4.Drinking hot chocolate\n";
+    std::cout << "\n\n";
 
-    //case 0:
-    std::cout << "A\tB\tC\t\tQ\n";
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
+    switch (menuItem) {
+        case (1):
+            std::cout << "Skiing?! Sounds dangerous!\n";
+            break;
+        case (2):
+            std::cout << "Sledding?! Sounds like work!\n";
+            break;
+        case (3):
+            std::cout << "Sitting by the fire?! Sounds warm!\n";
+            break;
+        case (4):
+            std::cout << "Hot chocolate?! Yum!\n";
+            break;
+        default:
+            std::cout << "Enter a valid menu item";
+    }
 
-    C = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
+    char begin;
+    std::cout << "\n\nWhere do you want to begin?\n";
+    std::cout << "B. At the beginning?\nM. At the middle?";
+    std::cout << "\nE. At the end?\n\n";
+    begin = 'M';
 
-    C = 0;
-    B = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
-
-    C = 1;
-    B = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
-
-    C = 0;
-    B = 0;
-    A = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
-
-    C = 1;
-    B = 0;
-    A = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
-
-    C = 0;
-    B = 1;
-    A = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
-
-    C = 1;
-    B = 1;
-    A = 1;
-    Q = A;
-    std::cout << A << "\t" << B << "\t" << C << "\t\t" << Q << "\n";
-
+    switch (begin) {
+        case ('B'):
+            std::cout << "Once upon a time there was a wolf.\n";
+        case ('M'):
+            std::cout << "The wolf hurt his leg.\n";
+        case ('E'):
+            std::cout << "The wolf lived happily everafter\n";
+    }
     return 0;
 }
-
