@@ -2,91 +2,39 @@
 
 #include<iostream>
 
-int demoOne();
-
-int demoTwo();
 
 int main() {
-    std::cout << "demo one\n";
-    demoOne();
-    std::cout << "demo two\n";
-    demoTwo();
+    int userInput[40];
+
+    //Enter the numbers into an array called userInput
+    for (int i = 0; i < 40; i++) {
+        scanf("%d", &userInput[i]);
+    }
+    //print the array
+    std::cout << "\nThe array\n";
+    for (int i = 0; i < 40; i++) {
+        std::cout << userInput[i] << " ";
+    }
+    //print the array in reverse order
+    std::cout << "\n\nThe array in reverse order\n";
+    for (int i = 39; i >= 0; i--) {
+        std::cout << userInput[i] << " ";
+    }
+    //sorting the array
+    for (int i = 0; i < 40; i++) {
+        for (int j = 0; j < 39 - i; j++) {
+            if (userInput[j] > userInput[j + 1]) {
+                int temp;
+                temp = userInput[j];
+                userInput[j] = userInput[j + 1];
+                userInput[j + 1] = temp;
+            }
+        }
+    }
+    std::cout << "\n\nThe array sorted\n";
+    for (int i = 0; i < 40; i++) {
+        std::cout << userInput[i] << " ";
+    }
     return 0;
 }
 
-int demoTwo() {
-    std::__cxx11::string name;
-    int givenInt;
-    float givenFloat;
-    double givenDouble;
-    std::__cxx11::string givenString;
-    char givenChar;
-    int *pointerGivenInt;
-    int **pointerPointerGivenInt;
-
-    pointerGivenInt = &givenInt;
-    pointerPointerGivenInt = &pointerGivenInt;
-
-    //Get the values of each variable
-    std::cout << "integer = \n";
-    std::cin >> givenInt;
-    std::cout << "float = \n";
-    std::cin >> givenFloat;
-    std::cout << "double = \n";
-    std::cin >> givenDouble;
-    //We need to use cin.ignore so cin will ignore
-//the characters in the buffer leftover
-//from the givenDouble
-    std::cin.ignore();
-    std::cout << "character = \n";
-    std::cin >> givenChar;
-
-    std::cout << "string = \n";
-    std::cin.ignore();
-    getline(std::cin, givenString);
-
-
-    //The value stored in the data
-    std::cout << "integer = " << givenInt << "\n";
-    std::cout << "float = " << givenFloat << "\n";
-    std::cout << "double = " << givenDouble << "\n";
-    std::cout << "string = " << givenString << "\n";
-    std::cout << "character = " << (char) givenChar << "\n\n";
-
-    //The address of the data - use pointers
-    std::cout << "address integer = " << &givenInt << "\n";
-    std::cout << "address float = " << &givenFloat << "\n";
-    std::cout << "address double = " << &givenDouble << "\n";
-    std::cout << "address string = " << &givenString << "\n";
-    std::cout << "address character = " << (void *) &givenChar << "\n\n";
-
-    //Use indirection to the get the value stored at the address
-    std::cout << "pointer of givenInt = " << *pointerGivenInt << "\n";
-    std::cout << "pointer of pointer of givenInt = " << **pointerPointerGivenInt << "\n";
-
-    return 0;
-}
-
-int demoOne() {
-    int *pointerI;
-    int number;
-    char character;
-    char *pointerC;
-    std::__cxx11::string sentence;
-    std::__cxx11::string *pointerS;
-
-    pointerI = &number;
-    *pointerI = 45;
-
-    pointerC = &character;
-    *pointerC = 'f';
-
-    pointerS = &sentence;
-    *pointerS = "Hey look at me, I know pointers!";
-
-    std::cout << "number = " << number << "\n";
-    std::cout << "character = " << character << "\n";
-    std::cout << "sentence = " << sentence << "\n";
-
-    return 0;
-}
