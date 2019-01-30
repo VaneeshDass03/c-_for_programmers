@@ -1,27 +1,72 @@
-/*Goal: practice creating and using classes.
-**Create a class called Cat.
-**Create the following members:
-**private members: name, breed, age
-**public members: setName, setBreed,setAge
-**getName, getBreed, getAge, printInfo*/
+/*Goal: learn to use constructors*/
 
-#include"main.hpp"
 
+#include<iostream>
+
+using namespace std;
+
+//The cats class that we used earlier in the lesson.
+class Cats {
+    string name;
+    string breed;
+    int age;
+public:
+    Cats(); //declaring the constructor
+    void setName(string nameIn);
+
+    void setBreed(string breedIn);
+
+    void setAge(int ageIn);
+
+    string getName();
+
+    string getBreed();
+
+    int getAge();
+
+    void printInfo();
+};
+
+//defining the constructor
+Cats::Cats() {
+    cout << "Assigning initial values in the constructor\n";
+    name = "Unknown";
+    breed = "Unknown"; //the initial value of the breed
+    age = 99; //the initial value of the age
+}
+
+void Cats::setName(string nameIn) {
+    name = nameIn;
+}
+
+void Cats::setBreed(string breedIn) {
+    breed = breedIn;
+}
+
+void Cats::setAge(int ageIn) {
+    age = ageIn;
+}
+
+string Cats::getName() {
+    return name;
+}
+
+string Cats::getBreed() {
+    return breed;
+}
+
+int Cats::getAge() {
+    return age;
+}
+
+void Cats::printInfo() {
+    cout << name << " " << breed << " " << age;
+}
+
+//+++++++
 int main() {
-    Cat cat1, cat2;
-    cat1.setName("Kimmy");
-    cat2.setName("Bobby");
-    cat1.setBreed("calico");
-    cat2.setBreed("main coon");
-    cat1.setAge(4);
-    cat2.setAge(1);
-
+    Cats cat1;
+    cout << "Cat1 information: ";
     cat1.printInfo();
-    cout << "\n";
-    cat2.printInfo();
-    cout << "\n\n";
-    //Alternate printing method
-    cout << cat1.getName() << " " << cat1.getBreed() << " " << cat1.getAge() << "\n";
-    cout << cat2.getName() << " " << cat2.getBreed() << " " << cat2.getAge();
     return 0;
 }
