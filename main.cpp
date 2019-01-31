@@ -1,72 +1,35 @@
-/*Goal: learn to use constructors*/
-
-
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-//The cats class that we used earlier in the lesson.
-class Cats {
-    string name;
-    string breed;
-    int age;
+class Shape {
+private:
+    int length;     // Length of a box
+    int width;
+
 public:
-    Cats(); //declaring the constructor
-    void setName(string nameIn);
+    // Constructor definition
+    Shape(int l = 2, int w = 2) {
+        length = l;
+        width = w;
+    }
 
-    void setBreed(string breedIn);
+    double Area() {
+        return length * width;
+    }
 
-    void setAge(int ageIn);
-
-    string getName();
-
-    string getBreed();
-
-    int getAge();
-
-    void printInfo();
+    int operator+(Shape shapeIn) {
+        return Area() + shapeIn.Area();
+    }
 };
 
-//defining the constructor
-Cats::Cats() {
-    cout << "Assigning initial values in the constructor\n";
-    name = "Unknown";
-    breed = "Unknown"; //the initial value of the breed
-    age = 99; //the initial value of the age
-}
+int main(void) {
+    Shape sh1(4, 4);    // Declare shape1
+    Shape sh2(2, 6);    // Declare shape2
 
-void Cats::setName(string nameIn) {
-    name = nameIn;
-}
-
-void Cats::setBreed(string breedIn) {
-    breed = breedIn;
-}
-
-void Cats::setAge(int ageIn) {
-    age = ageIn;
-}
-
-string Cats::getName() {
-    return name;
-}
-
-string Cats::getBreed() {
-    return breed;
-}
-
-int Cats::getAge() {
-    return age;
-}
-
-void Cats::printInfo() {
-    cout << name << " " << breed << " " << age;
-}
-
-//+++++++
-int main() {
-    Cats cat1;
-    cout << "Cat1 information: ";
-    cat1.printInfo();
+    int total = sh1 + sh2;
+    cout << "\nsh1.Area() = " << sh1.Area();
+    cout << "\nsh2.Area() = " << sh2.Area();
+    cout << "\nTotal = " << total;
     return 0;
 }
