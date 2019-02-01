@@ -1,62 +1,39 @@
-//
-// Created by vaneesh on 29/1/19.
-//
-
-/*Header file for main.cpp
-**Create a class called Cat.
-**Create the following members:
-**private members: name, breed, age
-**public members: setName, setBreed,setAge
-**getName, getBreed, getAge, printInfo*/
+//header file for main.cpp
 
 #include<iostream>
 
+//The class accepts strings,
+//so we need to use namespace
 using namespace std;
 
-class Cat {
-    string name;
-    string breed;
-    int age;
+//tell compiler this class uses a generic value
+template<class T>
+class StudentRecord {
+private:
+    const int size = 5;
+    T grade;
+    int studentId;
 public:
-    void setName(string nameIn);
+    StudentRecord(T input);
 
-    void setBreed(string breedIn);
+    void setId(int idIn);
 
-    void setAge(int ageIn);
-
-    string getName();
-
-    string getBreed();
-
-    int getAge();
-
-    void printInfo();
+    void printGrades();
 };
 
-void Cat::setName(string nameIn) {
-    name = nameIn;
+template<class T>
+StudentRecord<T>::StudentRecord(T input) {
+    grade = input;
 }
 
-void Cat::setBreed(string breedIn) {
-    breed = breedIn;
+template<class T>
+void StudentRecord<T>::setId(int idIn) {
+    studentId = idIn;
 }
 
-void Cat::setAge(int ageIn) {
-    age = ageIn;
-}
-
-string Cat::getName() {
-    return name;
-}
-
-string Cat::getBreed() {
-    return breed;
-}
-
-int Cat::getAge() {
-    return age;
-}
-
-void Cat::printInfo() {
-    cout << name << " " << breed << " " << age;
+template<class T>
+void StudentRecord<T>::printGrades() {
+    cout << "ID# " << studentId << ": ";
+    cout << grade << "\n ";
+    cout << "\n";
 }

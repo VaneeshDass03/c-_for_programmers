@@ -1,26 +1,28 @@
-/*Goal: learn to use templates with multiple variable types.
+/*Goal: examine generic classes.
 */
 
-#include<iostream>
-using namespace std;
+/*Goal: study generic classes*/
 
-template<typename T, typename U>
-T getBigger(T input1, U input2);
-
+#include "main.hpp"
 
 int main() {
-    int a = 5;
-    float b = 6.334;
-    int bigger;
-    cout << "Between " << a << " and " << b << " " << getBigger(a, b) << " is bigger.\n";
+    //StudentRecord is the generic class
+    //The constructor sets the grade value
+    StudentRecord<int> srInt(3);
+    srInt.setId(111111);
+    srInt.printGrades();
 
-    cout << "Between " << a << " and " << b << " " << getBigger(b, a) << " is bigger.\n";
+    StudentRecord<char> srChar('B');
+    srChar.setId(222222);
+    srChar.printGrades();
+
+    StudentRecord<float> srFloat(3.333);
+    srFloat.setId(333333);
+    srFloat.printGrades();
+
+    StudentRecord<string> srString("B-");
+    srString.setId(4444);
+    srString.printGrades();
+
     return 0;
-}
-
-template<typename T, typename U>
-T getBigger(T input1, U input2) {
-    if (input1 > input2)
-        return input1;
-    return input2;
 }
