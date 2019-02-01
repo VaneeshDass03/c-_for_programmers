@@ -1,35 +1,34 @@
-#include <iostream>
+#include<iostream>
 
 using namespace std;
 
-class Shape {
-private:
-    int length;     // Length of a box
-    int width;
+//Our generic function
+template<typename T>
+//tell the compiler we are using a template
+T findSmaller(T input1, T input2);
 
-public:
-    // Constructor definition
-    Shape(int l = 2, int w = 2) {
-        length = l;
-        width = w;
-    }
+int main() {
+    int a = 54;
+    int b = 89;
+    float f1 = 7.8;
+    float f2 = 9.1;
+    char c1 = 'f';
+    char c2 = 'h';
+    string s1 = "Hello";
+    string s2 = "Bots are fun";
 
-    double Area() {
-        return length * width;
-    }
-
-    int operator+(Shape shapeIn) {
-        return Area() + shapeIn.Area();
-    }
-};
-
-int main(void) {
-    Shape sh1(4, 4);    // Declare shape1
-    Shape sh2(2, 6);    // Declare shape2
-
-    int total = sh1 + sh2;
-    cout << "\nsh1.Area() = " << sh1.Area();
-    cout << "\nsh2.Area() = " << sh2.Area();
-    cout << "\nTotal = " << total;
+    //Wow! We can use one function for different variable types
+    cout << "\nIntegers compared: " << findSmaller(a, b);
+    cout << "\nFloats compared: " << findSmaller(f1, f2);
+    cout << "\nChars compared: " << findSmaller(c1, c2);
+    cout << "\nStrings compared: " << findSmaller(s1, s2);
     return 0;
+}
+
+template<typename T>
+T findSmaller(T input1, T input2) {
+    if (input1 < input2)
+        return input1;
+    else
+        return input2;
 }
